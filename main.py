@@ -6,14 +6,16 @@ import time
 from Config.tokens import *
 from Controllers.api_controller import *
 from Controllers.notification_controller import send_notify
+from Views.build.gui import *
 
-def main():
+def main(user_input):
 
     secs = 60
     times = 0
 
-    print("Which streamer do you want to check?", flush=True)
-    twitch_user = input("Twitch username: ")
+    # print("Which streamer do you want to check?", flush=True)
+
+    twitch_user = user_input
 
     try:
         userdata = check_user(twitch_user)
@@ -40,5 +42,7 @@ if __name__ == "__main__":
     times = 0
 
     while True:
-        main()
+        window_input = principal_window()
+
+        main(window_input)
         # time.sleep(60)
